@@ -52,13 +52,13 @@ depositar=function(numeroCuenta,monto){
     let cuentaAfectada=buscarCuenta(numeroCuenta);
 
     //Al saldo actual de la cuenta afectada, le suma el monto que recibe como parámetro
-    cuentaAfectada.saldo+=monto;
+    cuentaAfectada.saldo+=parseFloat(monto);
     return cuentaAfectada.saldo;
 }
 
 ejecutarDeposito=function(){
     //Toma el numero de cuenta ingresado en la caja de texto
-    let cuenta=recuperarTexto("etqNumeroCuenta");
+    let cuenta=recuperarTexto("txtCuentaBusqueda");
     //Toma el monto ingresado en la caja de texto
     let monto=recuperarTexto("txtMonto");
     //invoca a depositar
@@ -72,10 +72,11 @@ ejecutarDeposito=function(){
 retirar=function(numeroCuenta,monto){
     //invoca a buscarCuenta, guarda el resultado en la variable cuentaAfectada;
     let cuentaAfectada=buscarCuenta(numeroCuenta);
+    let montoFloat=parseFloat(monto);
     //Valida si la cuenta tiene el saldo suficiente para retirar el monto
     //Si el saldo es suficiente,al saldo actual de la cuenta afectada, le resta el monto que recibe como parámetro
-    if(cuentaAfectada.saldo>=monto){
-        cuentaAfectada.saldo-=monto;
+    if(cuentaAfectada.saldo>=montoFloat){
+        cuentaAfectada.saldo-=montoFloat;
         return cuentaAfectada.saldo;
     }else{
     //Si el saldo no es suficiente, muestra un alert SALDO INSUFICIENTE
@@ -85,9 +86,9 @@ retirar=function(numeroCuenta,monto){
     
 }
 
-ejecutarRetiro=function(numeroCuenta,monto){
+ejecutarRetiro=function(){
     //Toma el numero de cuenta ingresado en la caja de texto
-    let cuenta=recuperarTexto("etqNumeroCuenta");
+    let cuenta=recuperarTexto("txtCuentaBusqueda");
     //Toma el monto ingresado en la caja de texto
     let monto=recuperarTexto("txtMonto");
     //invoca a retirar
