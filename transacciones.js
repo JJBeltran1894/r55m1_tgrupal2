@@ -53,7 +53,7 @@ depositar=function(numeroCuenta,monto){
 
     //Al saldo actual de la cuenta afectada, le suma el monto que recibe como parámetro
     cuentaAfectada.saldo+=monto;
-    return cuentaAfectada.saldo
+    return cuentaAfectada.saldo;
 }
 
 ejecutarDeposito=function(){
@@ -69,17 +69,33 @@ ejecutarDeposito=function(){
     mostrarTexto("etqSaldo",nuevoSaldo);
 }
 
-depositar=function(numeroCuenta,monto){
-    let cuentaAfectada;
-    //invoca a buscarCuenta, guarda el resultado en la variable cuentaAfectada;
-    //Al saldo actual de la cuenta afectada, le suma el monto que recibe como parámetro
-}
-
 retirar=function(numeroCuenta,monto){
-    let cuentaAfectada;
     //invoca a buscarCuenta, guarda el resultado en la variable cuentaAfectada;
+    let cuentaAfectada=buscarCuenta(numeroCuenta);
     //Valida si la cuenta tiene el saldo suficiente para retirar el monto
     //Si el saldo es suficiente,al saldo actual de la cuenta afectada, le resta el monto que recibe como parámetro
+    if(cuentaAfectada.saldo>=monto){
+        cuentaAfectada.saldo-=monto;
+        return cuentaAfectada.saldo;
+    }else{
     //Si el saldo no es suficiente, muestra un alert SALDO INSUFICIENTE
-    //Si logra retirar muestra un mensaje TRANSACCION EXITOSA y muestra en pantalla el nuevo saldo de la cuenta
+        alert("Saldo Insuficiente")
+        return null;
+    }
+    
+}
+
+ejecutarRetiro=function(numeroCuenta,monto){
+    //Toma el numero de cuenta ingresado en la caja de texto
+    let cuenta=recuperarTexto("etqNumeroCuenta");
+    //Toma el monto ingresado en la caja de texto
+    let monto=recuperarTexto("txtMonto");
+    //invoca a retirar
+    let nuevoSaldo=retirar(cuenta,monto);
+    if (nuevoSaldo!=null){
+        alert("Transaccion Exitosa")
+        //Muestra en pantalla el nuevo saldo de la cuenta
+        mostrarTexto("etqSaldo",nuevoSaldo);
+    }
+
 }
