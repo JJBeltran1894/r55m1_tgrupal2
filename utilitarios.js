@@ -23,14 +23,34 @@ recuperarTexto=function(idComponente){
     return valorIngresado;
 }
 
+recuperarTextoEtq=function(idComponente){
+    let componente;
+    let valorIngresado;
+    componente=document.getElementById(idComponente);
+    valorIngresado=componente.innerText;
+    return valorIngresado;
+}
+
 recuperarInt = function(idComponente){
    let valorCaja= recuperarTexto(idComponente);
    let valorEntero = parseInt(valorCaja);
    return valorEntero;
 }
 
+recuperarIntEtq = function(idComponente){
+   let valorCaja= recuperarTextoEtq(idComponente);
+   let valorEntero = parseInt(valorCaja);
+   return valorEntero;
+}
+
 recuperarFloat = function(idComponente){
     let valorCaja= recuperarTexto(idComponente);
+    let valorFlotante = parseFloat(valorCaja);
+    return valorFlotante;
+ }
+
+ recuperarFloatEtq = function(idComponente){
+    let valorCaja= recuperarTextoEtq(idComponente);
     let valorFlotante = parseFloat(valorCaja);
     return valorFlotante;
  }
