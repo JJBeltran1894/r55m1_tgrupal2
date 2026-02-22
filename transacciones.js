@@ -58,7 +58,7 @@ depositar=function(numeroCuenta,monto){
 
 ejecutarDeposito=function(){
     //Toma el numero de cuenta ingresado en la caja de texto
-    let cuenta=recuperarTexto("txtCuentaBusqueda");
+    let cuenta=recuperarTextoEtq("etqNumeroCuenta");
     //Toma el monto ingresado en la caja de texto
     let monto=recuperarTexto("txtMonto");
     //invoca a depositar
@@ -88,7 +88,7 @@ retirar=function(numeroCuenta,monto){
 
 ejecutarRetiro=function(){
     //Toma el numero de cuenta ingresado en la caja de texto
-    let cuenta=recuperarTexto("txtCuentaBusqueda");
+    let cuenta=recuperarTextoEtq("etqNumeroCuenta");
     //Toma el monto ingresado en la caja de texto
     let monto=recuperarTexto("txtMonto");
     //invoca a retirar
